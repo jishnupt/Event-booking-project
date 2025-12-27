@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="logo">
+                <img src="/static/images/BE logo.png" alt="" width="80px" height="60px">
+            </div>
+
+            <p>{{request.user}}</p>
+            
+            <a href="">Home</a>
+            <a href="{% url 'Login_page' %}">Login</a>
+            <a href="">Event Booked</a>
+            <a href="{% url 'RegisterUser' %}">Register</a>
+            <a href="{% url 'Logout_page' %}">Logout</a>
+
+        </div>
+        <div class="content">
+
+
+        </div>
+        <div class="footer">
+            <p>© 2025 EventBook. All Rights Reserved.</p>
+        </div>
+    </div>
+    
+</body>
+</html>
