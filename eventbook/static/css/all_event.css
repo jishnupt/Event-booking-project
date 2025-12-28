@@ -1,0 +1,75 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* PAGE */
+.events_main {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* GRID */
+.events_box {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+/* EVENT CARD */
+.event_card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.event_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* IMAGE */
+.event_card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.event_card h3 {
+    padding: 14px 16px 6px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.event_card .location {
+    padding: 0 16px 18px;
+    font-size: 14px;
+    color: #475569;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .event_card img {
+        height: 170px;
+    }
+}
+
+@media (max-width: 480px) {
+    .events_main {
+        padding: 25px 12px;
+    }
+}
+

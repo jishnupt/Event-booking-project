@@ -1,6 +1,22 @@
-<p>Are You Sure Want to Logout?</p>
-<form method="post">
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/logout.css">
+</head>
+<body>
+    <div class="logout_box">  
+    <p>Are You Sure Want to Logout?</p>
+    <form method="post">
     {% csrf_token %}
     <input type="submit" value="YES">
-</form>
+    </form>
     <a href="{% url 'base' %}"><button>NO</button></a>
+    </div>  
+</body>
+</html>
+{%endblock%}

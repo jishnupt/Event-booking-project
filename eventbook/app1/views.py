@@ -1,11 +1,16 @@
 from django.shortcuts import render,redirect
 from .forms import UserRegForm
 from django.contrib.auth import authenticate,login,logout
+from .models import event_category,Events
 # Create your views here.
 
 
 def base(request):
     return render(request,'base.html')
+
+def homepage(request):
+    event_c = event_category.objects.all()
+    return render(request,'home.html',{'event_c':event_c})
 
 def RegisterUser(request):
     if request.method == 'POST':
@@ -39,7 +44,7 @@ def Login_page(request):
             login(request,user)
             if user.role == 'admin':
                 return redirect(admin_dashbord)
-            if user.role == 'buyer':
+            if user.role == 'user':
                 return redirect(user_dashbord)
     return render(request,'login.html')
 
@@ -64,5 +69,9 @@ def Logout_page(request):
         return redirect(base)
     else:
         return render(request,'logout.html')
+    
+def all_event(request,eid):
+    events = Events.objects.filter(event_cat=eid)
+    return render(request,'all_event.html',{'events':events})
 
 
