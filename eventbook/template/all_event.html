@@ -19,6 +19,7 @@
 
             <h3>{{i.title}}</h3>
             <p class="location">📍 {{i.location}}</p>
+            <a href="{% url 'eventbooking' i.id %}"><button>Book Now</button></a>
         </div>
         {% endfor %}
 

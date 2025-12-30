@@ -28,4 +28,12 @@ class Events(models.Model):
 
     def __str__(self):
         return self.title
+    
+class EventBooking(models.Model):
+    name = models.OneToOneField(Events,on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE,null=True)
+    event_date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
 

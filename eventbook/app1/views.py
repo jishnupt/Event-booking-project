@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
-from .forms import UserRegForm
+from .forms import UserRegForm,EventBookingForm
 from django.contrib.auth import authenticate,login,logout
-from .models import event_category,Events
+from .models import event_category,Events,EventBooking
 # Create your views here.
 
 
@@ -73,5 +73,23 @@ def Logout_page(request):
 def all_event(request,eid):
     events = Events.objects.filter(event_cat=eid)
     return render(request,'all_event.html',{'events':events})
+
+def eventbooking(request,eid):
+    even = Events.objects.get(id=eid)
+    if request.method == 'POST':
+        form = EventBookingForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.name = even
+            data.user = request.user
+            data.save()
+            return redirect(homepage)
+    else:
+        form = EventBookingForm()
+    return render(request,'eventbooking.html',{'form':form,'even':even})
+
+def EventBooked(request):
+    eventss = EventBooking.objects.filter(user=request.user)
+    return render(request,'bookedevents.html',{'eventss':eventss})
 
 
