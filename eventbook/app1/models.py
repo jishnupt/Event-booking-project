@@ -12,3 +12,28 @@ class CustomUser(AbstractUser):
         ('user','user'),
     )
     role = models.CharField(max_length=50,choices=ROLE_CHOICE,default='user')
+
+class event_category(models.Model):
+    name = models.CharField(max_length=50)
+    c_image = models.ImageField(upload_to='event_cat')
+
+    def __str__(self):
+        return self.name
+    
+class Events(models.Model):
+    title = models.CharField(max_length=50)
+    event_cat = models.ForeignKey(event_category,on_delete=models.CASCADE)
+    location = models.TextField(null=True)
+    e_image = models.ImageField(upload_to='events')
+
+    def __str__(self):
+        return self.title
+    
+class EventBooking(models.Model):
+    name = models.OneToOneField(Events,on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE,null=True)
+    event_date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+

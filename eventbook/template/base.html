@@ -12,18 +12,19 @@
             <div class="logo">
                 <img src="/static/images/BE logo.png" alt="" width="80px" height="60px">
             </div>
-
+            {% if user.is_authenticated %}
             <p>{{request.user}}</p>
-            
-            <a href="">Home</a>
+            {% endif %}
+            <a href="{% url 'homepage' %}">Home</a>
             <a href="{% url 'Login_page' %}">Login</a>
-            <a href="">Event Booked</a>
+            <a href="{% url 'EventBooked' %}">Event Booked</a>
             <a href="{% url 'RegisterUser' %}">Register</a>
             <a href="{% url 'Logout_page' %}">Logout</a>
 
         </div>
         <div class="content">
-
+            {%block contents%}
+            {%endblock%}
 
         </div>
         <div class="footer">

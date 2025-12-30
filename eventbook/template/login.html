@@ -1,7 +1,22 @@
-
-<form method="post">
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form method="post">
     {% csrf_token %}
-    <input type="text" placeholder="username" name="user">
+    <input type="text" placeholder="username" name="user"> <br> <br>
     <input type="password" placeholder="password" name="pass">
     <input id="b3" type="submit" value="Login">
-</form>
+    </form>
+
+</body>
+</html>
+{%endblock%}
+

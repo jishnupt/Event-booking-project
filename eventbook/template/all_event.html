@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/all_event.css">
+</head>
+<body>
+
+    <div class="events_main">
+    <div class="events_box">
+
+        {% for i in events %}
+        <div class="event_card">
+            <img src="/home/{{i.e_image}}" alt="event image">
+
+            <h3>{{i.title}}</h3>
+            <p class="location">📍 {{i.location}}</p>
+            <a href="{% url 'eventbooking' i.id %}"><button>Book Now</button></a>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+</body>
+</html>
+{%endblock%}

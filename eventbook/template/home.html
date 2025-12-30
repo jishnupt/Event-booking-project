@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+</head>
+<body>
+
+
+
+
+
+<section class="home-hero">
+    <div class="container">
+        <h1>Event Booking Made Simple</h1>
+        <p>Find, manage, and book events with a reliable and secure platform</p>
+        <a href="#" class="primary-btn">View Events</a>
+    </div>
+</section>
+
+<section class="home-stats">
+    <div class="container stats-grid">
+<div class="stat">
+    <h3 class="counter" data-target="500">0</h3>
+    <p>Events Hosted</p>
+</div>
+
+<div class="stat">
+    <h3 class="counter" data-target="10000">0</h3>
+    <p>Tickets Booked</p>
+</div>
+
+        <div class="stat">
+            <h3 class="counter" data-target="200">0</h3>
+            <p>Trusted Organizers</p>
+        </div>
+    </div>
+</section>
+
+<section class="home-events">
+    <div class="container">
+        <h2>Upcoming Events</h2>
+
+        <div class="events-grid">
+            {% for i in event_c %}
+            <div class="event-card">
+                <p>{{i.name}}</p>
+                <img src="/home/{{i.c_image}}" alt="" width="300px" height="150px">
+            
+
+
+            <a href="{% url 'all_event' i.id %}"><button>View all</button></a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<section class="home-cta">
+    <div class="container">
+        <h2>Host or Book Your Next Event Today</h2>
+        <p>Join a platform trusted by professionals and event organizers.</p>
+        <a href="{% url 'AdminRegister' %}" class="secondary-btn">Get Started</a>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+    
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+    const speed = 100; // lower = faster
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute("data-target");
+            const count = +counter.innerText;
+            const increment = Math.ceil(target / speed);
+
+            if (count < target) {
+                counter.innerText = count + increment;
+                setTimeout(updateCount, 20);
+            } else {
+                counter.innerText = target.toLocaleString() + "+";
+            }
+        };
+        updateCount();
+    });
+});
+</script>
+
+</html>
+{% endblock %}

@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/eventbooking.css">
+</head>
+<body>
+    
+
+<div class="booking-page">
+    <h2 class="booking-title">{{ even }}</h2>
+
+    <div class="booking_card">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="book-btn">BOOK</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
+{%endblock%}
