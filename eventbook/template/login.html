@@ -6,15 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/css/login.css">
 </head>
 <body>
     
+    <div class="login_card">
     <form method="post">
     {% csrf_token %}
     <input type="text" placeholder="username" name="user"> <br> <br>
-    <input type="password" placeholder="password" name="pass">
+    <input type="password" placeholder="password" name="pass"> <br> <br>
     <input id="b3" type="submit" value="Login">
     </form>
+    </div>
 
 </body>
 </html>

@@ -1,6 +1,29 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/bookedevents.css">
+<div class="booked-events-wrapper">
+    <h2 class="section-title">My Booked Events</h2>
 
+    <div class="event-grid">
+        {% for i in eventss %}
+        <div class="booked-event-card">
+            <h3 class="event-name">{{ i.name }}</h3>
+            <p class="event-date">
+                <span>📅</span> {{ i.event_date }}
+            </p>
+        </div>
+        {% empty %}
+        <p class="no-events">No events booked yet.</p>
+        {% endfor %}
+    </div>
+</div>
 
-{% for i in eventss %}
-<p>{{i.name}}</p>
-<p>{{i.event_date}}</p>
-{% endfor %}
+</body>
+</html>
+{%endblock%}
