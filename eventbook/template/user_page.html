@@ -6,9 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/css/user_page.css">
 </head>
 <body>
-    <h1>user dashboard</h1>
+    <h1>Upcoming Events</h1>
+<div class="events_card">
+    {% for i in event_ca %}
+    <div class="event-card">
+        <img src="/home/{{i.c_image}}" alt="">
+        <h3>{{i.name}}</h3>
+    </div>
+    {% endfor %}
+</div>
 </body>
 </html>
 {%endblock%}

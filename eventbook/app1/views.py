@@ -49,10 +49,11 @@ def Login_page(request):
     return render(request,'login.html')
 
 def user_dashbord(request):
+    event_ca = event_category.objects.all()
     if request.user.role != 'user':
         return redirect(error)
     else:
-        return render(request,'user_page.html')
+        return render(request,'user_page.html',{'event_ca':event_ca})
 
 def admin_dashbord(request):
     if request.user.role != 'admin':

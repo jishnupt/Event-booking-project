@@ -1,0 +1,104 @@
+.booked-events-wrapper {
+    max-width: 1200px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 45px;
+    position: relative;
+    padding-left: 14px;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    height: 75%;
+    width: 5px;
+    background-color: #2563eb;
+    border-radius: 3px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.booked-event-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 22px;
+    transition: all 0.3s ease;
+}
+
+.booked-event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.event-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 14px;
+}
+
+.event-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.event-date span {
+    width: 32px;
+    height: 32px;
+    background-color: #eff6ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 15px;
+}
+
+.no-events {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 16px;
+    color: #6b7280;
+    padding: 40px 0;
+}
+
+@media (max-width: 768px) {
+    .booked-events-wrapper {
+        margin-top: 60px;
+    }
+
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 35px;
+    }
+
+    .booked-event-card {
+        padding: 18px;
+    }
+
+    .event-name {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .booked-events-wrapper {
+        margin-top: 50px;
+    }
+}
