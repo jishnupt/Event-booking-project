@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: #f4f6fb;
+}
+
+.hoster_reg_main {
+    min-height: 100vh;
+    display: flex;
+}
+
+.hoster_reg_left {
+    flex: 1;
+    padding: 55px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hoster_reg_left h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.hoster_register_card {
+    background: #ffffff;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hoster_register_card input,
+.hoster_register_card select,
+.hoster_register_card textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #dcdde1;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hoster_register_card textarea {
+    resize: none;
+    min-height: 110px;
+}
+
+.hoster_register_card input:focus,
+.hoster_register_card select:focus,
+.hoster_register_card textarea:focus {
+    border-color: #4a6cf7;
+    box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+}
+
+.hoster_register_card input[type="submit"] {
+    background: linear-gradient(135deg, #4a6cf7, #6c8cff);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.hoster_register_card input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+.hoster_reg_right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #5f9cff, #ff9f43);
+    position: relative;
+    overflow: hidden;
+}
+
+.hoster_design_right {
+    max-width: 380px;
+    color: #ffffff;
+    text-align: left;
+    padding: 40px;
+}
+
+.hoster_design_right::before {
+    content: "Grow Your Events With Us";
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hoster_design_right::after {
+    content: "• Host unlimited events\n• Manage bookings easily\n• Reach more customers\n• Secure & fast platform";
+    white-space: pre-line;
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+@media (max-width: 900px) {
+    .hoster_reg_main {
+        flex-direction: column;
+    }
+
+    .hoster_reg_right {
+        min-height: 280px;
+    }
+
+    .hoster_design_right {
+        text-align: center;
+    }
+
+    .hoster_design_right::before {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hoster_reg_left {
+        padding: 40px 20px;
+    }
+
+    .hoster_register_card {
+        padding: 22px;
+    }
+
+    .hoster_reg_left h2 {
+        font-size: 24px;
+    }
+
+    .hoster_design_right::before {
+        font-size: 22px;
+    }
+
+    .hoster_design_right::after {
+        font-size: 14px;
+    }
+}

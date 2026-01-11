@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/hoster_page.css">
+</head>
+<body>
+    <div class="hoster_main">
+            <div class="hoster_add_events_card">
+                <h3>ADD NEW EVENTS</h3>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="ADD POST">
+    </form>
+            </div>
+
+    </div>
+
+</body>
+</html>
+{%endblock%}

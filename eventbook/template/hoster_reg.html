@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/hoster_regi.css">
+</head>
+<body>
+    <div class="hoster_reg_main">
+        <div class="hoster_reg_left">
+        <h2>Hoster Registration</h2>
+    <div class="hoster_register_card">
+        
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="REGISTER">
+    </form>
+    </div>
+    </div>
+    <div class="hoster_reg_right">
+        <div class="hoster_design_right">
+
+        </div>
+    </div>
+
+    </div>
+
+
+</body>
+</html>
+{%endblock%}

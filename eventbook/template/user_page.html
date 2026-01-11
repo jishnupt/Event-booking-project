@@ -13,8 +13,9 @@
 <div class="events_card">
     {% for i in event_ca %}
     <div class="event-card">
-        <img src="/home/{{i.c_image}}" alt="">
         <h3>{{i.name}}</h3>
+        <img src="/home/{{i.c_image}}" alt="" width="130px" height="100px">
+        <a href="{% url 'all_event' i.id %}"><button>VIEW EVENTS</button></a>
     </div>
     {% endfor %}
 </div>

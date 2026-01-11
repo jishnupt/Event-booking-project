@@ -12,9 +12,6 @@
 <body>
 
 
-
-
-
 <section class="home-hero">
     <div class="container">
         <h1>Event Booking Made Simple</h1>
@@ -44,13 +41,13 @@
 
 <section class="home-events">
     <div class="container">
-        <h2>Upcoming Events</h2>
+        <h2>ALL EVENTS</h2>
 
         <div class="events-grid">
             {% for i in event_c %}
             <div class="event-card">
                 <p>{{i.name}}</p>
-                <img src="/home/{{i.c_image}}" alt="" width="300px" height="150px">
+                <img src="{{i.c_image}}" alt="" width="300px" height="150px">
             
 
 
@@ -66,7 +63,7 @@
     <div class="container">
         <h2>Host or Book Your Next Event Today</h2>
         <p>Join a platform trusted by professionals and event organizers.</p>
-        <a href="{% url 'AdminRegister' %}" class="secondary-btn">Get Started</a>
+        <a href="{% url 'hoster_registr' %}" class="secondary-btn">Get Started</a>
     </div>
 </section>
 
