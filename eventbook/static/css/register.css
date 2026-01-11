@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #f5f7fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.register-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register_card {
+    background: #ffffff;
+    width: 380px;
+    padding: 30px 28px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.register_card label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.register_card input[type="text"],
+.register_card input[type="email"],
+.register_card input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #cfd8ff;
+    outline: none;
+    font-size: 14px;
+    margin-bottom: 14px;
+    transition: 0.3s ease;
+}
+
+.register_card input:focus {
+    border-color: #3b5bfd;
+    box-shadow: 0 0 0 2px rgba(59, 91, 253, 0.15);
+}
+
+.register_card .helptext {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.register_card ul {
+    padding-left: 18px;
+    margin: 6px 0 14px 0;
+}
+
+.register_card ul li {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.register_card .errorlist {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.register_card .errorlist li {
+    color: #e11d48;
+    font-size: 13px;
+}
+
+.register_card input[type="submit"] {
+    width: 100%;
+    padding: 13px;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease;
+}
+
+.register_card input[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}

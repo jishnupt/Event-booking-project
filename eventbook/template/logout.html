@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/logout.css">
+    <link rel="stylesheet" href="/static/css/logout_pg.css">
 </head>
 <body>
     <div class="logout_box">  
@@ -15,7 +15,7 @@
     {% csrf_token %}
     <input type="submit" value="YES">
     </form>
-    <a href="{% url 'base' %}"><button>NO</button></a>
+    <a href="{% url 'homepage' %}"><button>NO</button></a>
     </div>  
 </body>
 </html>

@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/waiting_approv.css">
+</head>
+<body>
+<div class="approval-page">
+    <div class="approval-box">
+        <div class="icon">⏳</div>
+        <h3>Your post has been submitted and is awaiting administrative approval.</h3>
+        <p>You will be notified once the review process is complete.</p>
+        <a href="{% url 'hoster_dashbord' %}">Go to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>
+{%endblock%}

@@ -2,63 +2,112 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     background: #f8fafc;
     color: #0f172a;
+    padding: 40px 20px;
 }
 
 h1 {
     text-align: center;
-    font-size: 36px;
-    margin: 50px 0;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 50px;
 }
 
 .events_card {
     max-width: 1200px;
-    margin: 0 auto 80px;
-    padding: 0 20px;
+    margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
 }
 
 .event-card {
     background: #ffffff;
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+    text-align: center;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+}
+
+.event-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px 15px 10px;
 }
 
 .event-card img {
     width: 100%;
-    height: 200px;
+    height: 190px;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.event-card h3 {
-    padding: 18px;
-    font-size: 18px;
+.event-card:hover img {
+    transform: scale(1.06);
+}
+
+.event-card a {
+    display: inline-block;
+    margin: 22px 0 28px;
+    text-decoration: none;
+}
+
+.event-card button {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: #ffffff;
+    border: none;
+    padding: 12px 34px;
+    font-size: 14px;
     font-weight: 600;
-    text-align: center;
+    letter-spacing: 0.6px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
 }
 
-.event-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+.event-card button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.55);
 }
 
-@media (max-width: 992px) {
-    .events_card {
-        grid-template-columns: repeat(2, 1fr);
+.event-card button:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+        margin-bottom: 35px;
+    }
+
+    .event-card img {
+        height: 170px;
     }
 }
 
-@media (max-width: 576px) {
-    .events_card {
-        grid-template-columns: 1fr;
+@media (max-width: 480px) {
+    body {
+        padding: 25px 12px;
+    }
+
+    .event-card h3 {
+        font-size: 18px;
     }
 }
+
+
+

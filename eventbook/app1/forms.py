@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser,EventBooking
+from .models import CustomUser,EventBooking,Events
 from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 
@@ -8,6 +8,11 @@ class UserRegForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ['username','email']
+
+class EventaddForm(forms.ModelForm):
+    class Meta:
+        model = Events
+        exclude = ['admin_approval']
 
 class EventBookingForm(forms.ModelForm):
     class Meta:

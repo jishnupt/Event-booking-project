@@ -10,6 +10,7 @@ class CustomUser(AbstractUser):
     ROLE_CHOICE = (
         ('admin','admin'),
         ('user','user'),
+        ('hoster','hoster')
     )
     role = models.CharField(max_length=50,choices=ROLE_CHOICE,default='user')
 
@@ -25,13 +26,19 @@ class Events(models.Model):
     event_cat = models.ForeignKey(event_category,on_delete=models.CASCADE)
     location = models.TextField(null=True)
     e_image = models.ImageField(upload_to='events')
+    STATUS = (
+        ('pending','pending'),
+        ('approved','approved'),
+        ('rejected','rejected')
+    )
+    admin_approval = models.CharField(max_length=50,choices=STATUS,default='pending')
 
     def __str__(self):
         return self.title
     
 class EventBooking(models.Model):
-    name = models.OneToOneField(Events,on_delete=models.CASCADE)
-    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE,null=True)
+    name = models.OneToOneField(Events,on_delete=models.CASCADE,null=True)
+    user = models.ManyToManyField(CustomUser)
     event_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
 

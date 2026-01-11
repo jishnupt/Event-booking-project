@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/admin_pending.css">
+</head>
+<body>
+
+    <div class="admin-page">
+    <h2 class="page-title">Pending Event Approvals</h2>
+
+    {% if events %}
+        <div class="event-grid">
+            {% for i in events %}
+                <div class="event-card">
+                    <h3 class="event-title">{{ i.title }}</h3>
+
+                    <p class="event-status">
+                        Status:
+                        <span class="pending">{{ i.admin_approval }}</span>
+                    </p>
+                    <p>Location : {{i.location}}</p>
+                    <div class="action-buttons">
+                        <a href="{% url 'approve' i.id %}" class="btn approve">
+                            Approve
+                        </a>
+                        <a href="" class="btn reject">
+                            Reject
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="empty-text">No pending posts available.</p>
+    {% endif %}
+</div>
+    
+    
+</body>
+</html>
+{%endblock%}

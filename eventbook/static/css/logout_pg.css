@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: #f5f7fb;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.logout_box {
+    margin: auto;
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.logout_box p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.logout_box form {
+    margin-bottom: 15px;
+}
+
+.logout_box input[type="submit"],
+.logout_box button {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.logout_box input[type="submit"] {
+    background: linear-gradient(135deg, #ff5f6d, #ff9068);
+    color: #ffffff;
+}
+
+.logout_box input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+.logout_box button {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.logout_box button:hover {
+    background: #d5d5d5;
+}
+
+.logout_box a {
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    .logout_box {
+        padding: 22px;
+        border-radius: 10px;
+    }
+
+    .logout_box p {
+        font-size: 18px;
+    }
+
+    .logout_box input[type="submit"],
+    .logout_box button {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
