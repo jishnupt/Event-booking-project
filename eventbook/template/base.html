@@ -17,6 +17,7 @@
             <a href="{% url 'Logout_page' %}">Logout</a>
             {% endif %}
             {% if user.is_authenticated and user.role == 'admin' %}
+            <a href="{% url 'admin_dashbord' %}"><p>Events</p></a>
             <a href="{% url 'pending_page' %}"><p>🔔Pending Approvals</p></a>
             {% endif %}
             <a href="{% url 'homepage' %}">Home</a>

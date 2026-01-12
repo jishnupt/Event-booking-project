@@ -9,7 +9,7 @@ urlpatterns = [
     path('AdminRegister',AdminRegister,name='AdminRegister'),
     path('Login_page',Login_page,name='Login_page'),
     path('user_dashbord',user_dashbord),
-    path('admin_dashbord',admin_dashbord),
+    path('admin_dashbord',admin_dashbord,name='admin_dashbord'),
     path('error',error,name='error'),
     path('Logout_page',Logout_page,name='Logout_page'),
     path('all_event/<int:eid>',all_event,name='all_event'),

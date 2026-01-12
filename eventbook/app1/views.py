@@ -11,7 +11,8 @@ from .models import event_category,Events,EventBooking
 
 def homepage(request):
     event_c = event_category.objects.all()
-    return render(request,'home.html',{'event_c':event_c})
+    evnts = Events.objects.filter(admin_approval='approved')
+    return render(request,'home.html',{'event_c':event_c,'evnts':evnts})
 
 def RegisterUser(request):
     if request.method == 'POST':
@@ -151,7 +152,7 @@ def approve(request,pid):
     event = Events.objects.get(id=pid)
     event.admin_approval = 'approved'
     event.save()
-    return render(request,'approve.html')
+    return redirect(pending_page)
 
 
 
