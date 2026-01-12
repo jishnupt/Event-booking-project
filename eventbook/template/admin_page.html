@@ -1,1 +1,37 @@
-<h1>Admin dashboard</h1>
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/admin_page.css">
+</head>
+<body>
+    <div class="admin_allEvents_card">
+    {% for i in event %}
+    <div class="event_card">
+
+        <img src="{{ i.e_image.url }}" alt="event image">
+
+        <div class="event_content">
+            <h4>{{ i.title }}</h4>
+            <p>{{ i.location }}</p>
+        </div>
+
+        <div class="event_actions">
+            <a href="#"><button class="edit_btn">Edit Event</button></a>
+            <a href="{% url 'Delet_event' i.id %}">
+                <button class="delete_btn">Delet Event</button>
+            </a>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+    
+</body>
+</html>
+{% endblock %}

@@ -7,12 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/homiee.css">
 </head>
 <body>
-
-
-
 
 
 <section class="home-hero">
@@ -43,14 +40,21 @@
 </section>
 
 <section class="home-events">
-    <div class="container">
+    <div class="event-card1">
         <h2>Upcoming Events</h2>
+            {% for i in evnts %}
+            <h4>{{i.title}}</h4>
+            <p>{{i.location}}</p>
+            <img src="{{i.e_image}}" alt="" width="180px" height="130px">
+            {% endfor %}        
+        <h2>ALL EVENTS</h2>
 
         <div class="events-grid">
             {% for i in event_c %}
-            <div class="event-card">
+            <div class="event-card2">
+
                 <p>{{i.name}}</p>
-                <img src="/home/{{i.c_image}}" alt="" width="300px" height="150px">
+                <img src="{{i.c_image}}" alt="" width="300px" height="150px">
             
 
 
@@ -66,7 +70,7 @@
     <div class="container">
         <h2>Host or Book Your Next Event Today</h2>
         <p>Join a platform trusted by professionals and event organizers.</p>
-        <a href="{% url 'AdminRegister' %}" class="secondary-btn">Get Started</a>
+        <a href="{% url 'hoster_registr' %}" class="secondary-btn">Get Started</a>
     </div>
 </section>
 
@@ -82,7 +86,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll(".counter");
-    const speed = 100; // lower = faster
+    const speed = 100;
 
     counters.forEach(counter => {
         const updateCount = () => {

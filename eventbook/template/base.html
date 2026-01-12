@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/base_pg.css">
 </head>
 <body>
     <div class="main">
@@ -14,12 +14,21 @@
             </div>
             {% if user.is_authenticated %}
             <p>{{request.user}}</p>
+            <a href="{% url 'Logout_page' %}">Logout</a>
+            {% endif %}
+            {% if user.is_authenticated and user.role == 'admin' %}
+            <a href="{% url 'admin_dashbord' %}"><p>Events</p></a>
+            <a href="{% url 'pending_page' %}"><p>🔔Pending Approvals</p></a>
             {% endif %}
             <a href="{% url 'homepage' %}">Home</a>
             <a href="{% url 'Login_page' %}">Login</a>
+            {% if user.is_authenticated and user.role == 'user' %}
             <a href="{% url 'EventBooked' %}">Event Booked</a>
+            {% endif %}
             <a href="{% url 'RegisterUser' %}">Register</a>
-            <a href="{% url 'Logout_page' %}">Logout</a>
+            {% if user.is_authenticated and user.role == 'hoster' %}
+            <a href="{% url 'hoster_dashbord' %}">Add Events</a>
+            {% endif %}
 
         </div>
         <div class="content">

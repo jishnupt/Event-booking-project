@@ -1,5 +1,24 @@
-<form method="post">
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/admin_reg.css">
+</head>
+<body>
+
+    <div class="admin_register_card">
+    <form method="post">
     {% csrf_token %}
     {{form}}
     <input type="submit" value="REGISTER">
-</form>
+    </form>
+    </div>
+
+
+</body>
+</html>
+{%endblock%}
