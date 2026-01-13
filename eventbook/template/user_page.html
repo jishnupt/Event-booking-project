@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="/static/css/user_page.css">
 </head>
 <body>
-    <h1>Upcoming Events</h1>
+    <h1>ALL EVENTS</h1>
 <div class="events_card">
     {% for i in event_ca %}
     <div class="event-card">
         <h3>{{i.name}}</h3>
-        <img src="/home/{{i.c_image}}" alt="" width="130px" height="100px">
+        <img src="/{{i.c_image}}" alt="" width="130px" height="100px">
         <a href="{% url 'all_event' i.id %}"><button>VIEW EVENTS</button></a>
     </div>
     {% endfor %}

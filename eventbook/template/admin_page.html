@@ -21,7 +21,7 @@
         </div>
 
         <div class="event_actions">
-            <a href="#"><button class="edit_btn">Edit Event</button></a>
+            <a href="{% url 'Edit_event' i.id %}"><button class="edit_btn">Edit Event</button></a>
             <a href="{% url 'Delet_event' i.id %}">
                 <button class="delete_btn">Delet Event</button>
             </a>

@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    background: #f4f6fb;
+    color: #222;
+}
+
+.detail_view_event {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 15px;
+}
+
+.detail_card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+.detail_card img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.detail_card h3 {
+    font-size: 2rem;
+    padding: 25px 30px 10px;
+}
+
+.detail_card p {
+    padding: 0 30px 20px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.detail_card a {
+    display: block;
+    padding: 0 30px 30px;
+}
+
+.detail_card button {
+    width: 250px;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.detail_card button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.45);
+}
+
+@media (max-width: 768px) {
+    .detail_card img {
+        height: 320px;
+    }
+
+    .detail_card h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .detail_view_event {
+        padding: 20px 10px;
+    }
+
+    .detail_card img {
+        height: 250px;
+    }
+
+    .detail_card h3 {
+        font-size: 1.4rem;
+        padding: 20px;
+    }
+
+    .detail_card p {
+        padding: 0 20px 20px;
+    }
+
+    .detail_card a {
+        padding: 0 20px 25px;
+    }
+}
