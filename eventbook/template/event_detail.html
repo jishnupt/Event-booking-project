@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/event_detaile.css">
+</head>
+<body>
+
+    <div class="detail_view_event">
+        <div class="detail_card">
+            <h3>{{event.title}}</h3>
+            <p>{{event.location}}</p>
+            <img src="/{{event.e_image}}" alt="" width="350px" height="310px">
+            <a href="{% url 'eventbooking' event.id %}"><button>Book Now</button></a>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
+{%endblock%}

@@ -154,6 +154,27 @@ def approve(request,pid):
     event.save()
     return redirect(pending_page)
 
+def reject_event(request,pid):
+    event = Events.objects.get(id=pid)
+    event.admin_approval = 'rejected'
+    event.save()
+    return redirect(pending_page)
+
+def event_detail(request,did):
+    event = Events.objects.get(id=did)
+    return render(request,'event_detail.html',{'event':event})
+
+def Edit_event(request,eid):
+    event = Events.objects.get(id=eid)
+    if request.method == 'POST':
+        form = EventaddForm(request.POST,request.FILES,instance=event)
+        if form.is_valid():
+            form.save()
+            return redirect(admin_dashbord)
+    else:
+        form = EventaddForm(instance=event)
+    return render(request,'edit_event.html',{'form':form})
+
 
 
 

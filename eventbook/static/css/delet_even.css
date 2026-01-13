@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+}
+
+.delet {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.delet_card {
+    background: #ffffff;
+    max-width: 420px;
+    width: 100%;
+    padding: 35px 25px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.delet_card h4 {
+    font-size: 1.4rem;
+    color: #d32f2f;
+    margin-bottom: 25px;
+}
+
+.delet_card form {
+    margin-bottom: 15px;
+}
+
+.delet_card input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.delet_card input[type="submit"]:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+}
+
+.delet_card a {
+    text-decoration: none;
+}
+
+.delet_card button {
+    width: 100%;
+    padding: 12px;
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.delet_card button:hover {
+    background: #cfcfcf;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .delet_card {
+        padding: 28px 18px;
+    }
+
+    .delet_card h4 {
+        font-size: 1.2rem;
+    }
+}

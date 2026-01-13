@@ -1,6 +1,27 @@
-<h4>Are You Sure Want to DELET?</h4>
-<form method="post">
-    {% csrf_token %}
-    <input type="submit" value="YES">
-</form>
-<a href=""><button>NO</button></a>
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/delet_even.css">
+</head>
+<body>
+
+    <section class="delet" >
+        <div class="delet_card">
+            <h4>Are You Sure Want to DELET?</h4>
+            <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="YES">
+            </form>
+            <a href="{% url 'admin_dashbord' %}"><button>NO</button></a>
+        </div>
+    </section>
+
+
+</body>
+</html>
+{%endblock%}

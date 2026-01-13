@@ -21,7 +21,10 @@ urlpatterns = [
     path('pending_page',pending_page,name='pending_page'),
     path('pending_notification',pending_notification),
     path('waiting_approval',waiting_approval),
-    path('approve/<int:pid>',approve,name='approve')
+    path('approve/<int:pid>',approve,name='approve'),
+    path('reject_event/<int:pid>',reject_event,name='reject_event'),
+    path('event_detail/<int:did>',event_detail,name='event_detail'),
+    path('Edit_event/<int:eid>',Edit_event,name='Edit_event')
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

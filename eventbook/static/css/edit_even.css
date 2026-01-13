@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #d0c7f4, #dacdd2);
+}
+
+.edit_event {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.edit_event_card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    padding: 25px 22px;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+}
+
+.edit_event_card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.edit_event_card label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.edit_event_card input,
+.edit_event_card select,
+.edit_event_card textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit_event_card input:focus,
+.edit_event_card select:focus,
+.edit_event_card textarea:focus {
+    border-color: #f5e7ec;
+    box-shadow: 0 0 0 2px rgba(59, 71, 182, 0.15);
+}
+
+.edit_event_card textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.edit_event_card input[type="file"] {
+    padding: 6px;
+    font-size: 0.85rem;
+}
+
+.edit_event_card input[type="submit"] {
+    margin-top: 8px;
+    padding: 11px;
+    background: #3b45b6;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.edit_event_card input[type="submit"]:hover {
+    background: #962e58;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .edit_event_card {
+        max-width: 100%;
+        padding: 20px 16px;
+    }
+}
