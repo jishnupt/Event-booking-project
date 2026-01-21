@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/cancel_notf.css">
+</head>
+<body>
+    <h1>Canelled Events</h1>
+    <div class="cancel_notification_main">
+        <div class="cancel_notification_card">
+    {% for i in cancel %}
+    <p id="event1">{{i.event}}</p>
+    <p>Reason for cancellation : {{i.reason}}</p>
+    {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+{%endblock%}
