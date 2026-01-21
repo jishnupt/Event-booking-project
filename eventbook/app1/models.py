@@ -22,6 +22,7 @@ class event_category(models.Model):
         return self.name
     
 class Events(models.Model):
+    hoster = models.ForeignKey(CustomUser,on_delete=models.CASCADE,null=True)
     title = models.CharField(max_length=50)
     event_cat = models.ForeignKey(event_category,on_delete=models.CASCADE)
     location = models.TextField(null=True)
@@ -41,6 +42,15 @@ class EventBooking(models.Model):
     user = models.ManyToManyField(CustomUser)
     event_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+class Event_cancel(models.Model):
+    event = models.OneToOneField(Events,on_delete=models.CASCADE,null=True)
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE,null=True)
+    reason = models.TextField(blank=True)
+
+
+
+
 
 
 

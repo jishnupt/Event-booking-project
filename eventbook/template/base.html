@@ -25,6 +25,9 @@
             {% if user.is_authenticated and user.role == 'user' %}
             <a href="{% url 'EventBooked' %}">Event Booked</a>
             {% endif %}
+            {% if user.is_authenticated and user.role == 'hoster' %}
+            <a href="{% url 'cancel_noti' %}">Notification {{ cancel_count }}</a>
+            {% endif %}
             <a href="{% url 'RegisterUser' %}">Register</a>
             {% if user.is_authenticated and user.role == 'hoster' %}
             <a href="{% url 'hoster_dashbord' %}">Add Events</a>

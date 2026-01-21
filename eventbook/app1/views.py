@@ -1,8 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
-from .forms import UserRegForm,EventBookingForm,EventaddForm
+from .forms import UserRegForm,EventBookingForm,EventaddForm,EventcancelForm
 from django.contrib.auth import authenticate,login,logout
-from .models import event_category,Events,EventBooking
+from .models import event_category,Events,EventBooking,Event_cancel
 # Create your views here.
 
 
@@ -71,6 +71,7 @@ def hoster_dashbord(request):
         form = EventaddForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.save(commit=False)
+            data.hoster = request.user
             if data.admin_approval == 'pending':
                 data.save()
                 return redirect(waiting_approval)
@@ -135,13 +136,13 @@ def EventBooked(request):
     eventss = EventBooking.objects.filter(user=request.user)
     return render(request,'bookedevents.html',{'eventss':eventss})
 
-def Delet_event(request,eid):
-    event = Events.objects.get(id=eid)
-    if request.method == 'POST':
-        event.delete()
-        return redirect(admin_dashbord)
-    else:
-        return render(request,'delet_event.html')
+# def Delet_event(request,eid):
+#     event = Events.objects.get(id=eid)
+#     if request.method == 'POST':
+#         event.delete()
+#         return redirect(admin_dashbord)
+#     else:
+#         return render(request,'delet_event.html')
     
 
 def pending_notification(request):
@@ -164,17 +165,35 @@ def event_detail(request,did):
     event = Events.objects.get(id=did)
     return render(request,'event_detail.html',{'event':event})
 
-def Edit_event(request,eid):
-    event = Events.objects.get(id=eid)
+# def Edit_event(request,eid):
+#     event = Events.objects.get(id=eid)
+#     if request.method == 'POST':
+#         form = EventaddForm(request.POST,request.FILES,instance=event)
+#         if form.is_valid():
+#             form.save()
+#             return redirect(admin_dashbord)
+#     else:
+#         form = EventaddForm(instance=event)
+#     return render(request,'edit_event.html',{'form':form})
+
+def cancel_event(request,eid):
+    evente = get_object_or_404(Events, id=eid)
+    hoster_user = evente.hoster
     if request.method == 'POST':
-        form = EventaddForm(request.POST,request.FILES,instance=event)
+        form = EventcancelForm(request.POST)
         if form.is_valid():
-            form.save()
+            data = form.save(commit=False)
+            data.user = hoster_user
+            data.event = evente
+            data.save()
             return redirect(admin_dashbord)
     else:
-        form = EventaddForm(instance=event)
-    return render(request,'edit_event.html',{'form':form})
+        form = EventcancelForm()
+    return render(request,'cancel_evnt.html',{'form':form})
 
-
+def cancel_notification(request):
+    cancel = Event_cancel.objects.all()
+    cancel_count = cancel.count()
+    return render(request,'cancel_notf.html',{'cancel':cancel,'cancel_count':cancel_count})
 
 

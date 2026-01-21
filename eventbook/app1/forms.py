@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser,EventBooking,Events
+from .models import CustomUser,EventBooking,Events,Event_cancel
 from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 
@@ -12,7 +12,7 @@ class UserRegForm(UserCreationForm):
 class EventaddForm(forms.ModelForm):
     class Meta:
         model = Events
-        exclude = ['admin_approval']
+        exclude = ['admin_approval','hoster']
 
 class EventBookingForm(forms.ModelForm):
     class Meta:
@@ -30,3 +30,8 @@ class EventBookingForm(forms.ModelForm):
         if event_date < timezone.now().date():
             raise forms.ValidationError("Past dates are not allowed.")
         return event_date
+    
+class EventcancelForm(forms.ModelForm):
+    class Meta:
+        model = Event_cancel
+        fields = ['reason']
