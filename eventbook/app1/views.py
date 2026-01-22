@@ -191,6 +191,7 @@ def cancel_event(request,eid):
         form = EventcancelForm()
     return render(request,'cancel_evnt.html',{'form':form})
 
+
 def cancel_notification(request):
     cancel = Event_cancel.objects.all()
     cancel_count = cancel.count()

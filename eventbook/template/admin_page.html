@@ -6,30 +6,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/admin_page.css">
+    <link rel="stylesheet" href="/static/css/admin_pges.css">
 </head>
 <body>
-    <div class="admin_allEvents_card">
+   <div class="admin_allEvents_card">
     {% for i in event %}
     <div class="event_card">
 
-        <img src="{{ i.e_image.url }}" alt="event image">
-
-        <div class="event_content">
-            <h4>{{ i.title }}</h4>
-            <p>{{ i.location }}</p>
+        <div class="event_image">
+            <img src="{{ i.e_image.url }}" alt="event image">
         </div>
 
-        <div class="event_actions">
-            
-            <a href="{% url 'cancel_event' i.id %}">
-                <button class="delete_btn">Cancel Event</button>
-            </a>
+        <div class="event_body">
+            <h4>{{ i.title }}</h4>
+            <p>{{ i.location }}</p>
+
+            <div class="event_actions">
+                {% if i.event_cancel %}
+                <button class="cancelled_btn" disabled>
+                    Cancelled
+                </button>
+                {% else %}
+                <a href="{% url 'cancel_event' i.id %}">
+                    <button class="delete_btn">Cancel Event</button>
+                </a>
+                {% endif %}
+            </div>
         </div>
 
     </div>
     {% endfor %}
 </div>
+
 
     
 </body>
